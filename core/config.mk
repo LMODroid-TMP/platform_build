@@ -1267,6 +1267,9 @@ include $(BUILD_SYSTEM)/sysprop_config.mk
 # consistency with those defined in BoardConfig.mk files.
 include $(BUILD_SYSTEM)/android_soong_config_vars.mk
 
+SOONG_VARIABLES := $(SOONG_OUT_DIR)/soong.$(TARGET_PRODUCT).variables
+SOONG_EXTRA_VARIABLES := $(SOONG_OUT_DIR)/soong.$(TARGET_PRODUCT).extra.variables
+
 ifneq ($(LMODROID_BUILD),)
 ifneq ($(wildcard device/lmodroid/sepolicy/common/sepolicy.mk),)
 ## We need to be sure the global selinux policies are included
@@ -1279,6 +1282,9 @@ ifeq ($(CALLED_FROM_SETUP),true)
 include $(BUILD_SYSTEM)/ninja_config.mk
 include $(BUILD_SYSTEM)/soong_config.mk
 endif
+
+SOONG_VARIABLES :=
+SOONG_EXTRA_VARIABLES :=
 
 -include external/ltp/android/ltp_package_list.mk
 DEFAULT_DATA_OUT_MODULES := ltp $(ltp_packages)
