@@ -115,11 +115,6 @@ endif
 
 $(KATI_obsolete_var ADDITIONAL_BUILD_PROPERTIES, Please use ADDITIONAL_SYSTEM_PROPERTIES)
 
-#
-# -----------------------------------------------------------------
-# Add our custom properties to the build properties.
-ADDITIONAL_SYSTEM_PROPERTIES += $(LMODROID_PROPERTIES)
-
 # Bring in standard build system definitions.
 include $(BUILD_SYSTEM)/definitions.mk
 
